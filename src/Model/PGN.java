@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class PGN {
 
-    private String regexRondas = "(\\d+\\.[\\n ]*(([a-zA-Z]+\\d[#+]*)|(\\w-\\w(-\\w)*))[\\n ]+(([a-zA-Z]+\\d[#+]*)|(\\w-\\w(-\\w)*))(\\s*(1-0|0-1|1\\/2-1\\/2)?)?)";
+    private String regexRondas = "(\\d+\\.[\\n ]*(([A-Z]*\\d*[a-zA-Z]+\\d[#+]*)|(\\w-\\w(-\\w)*))[\\n ]+(([A-Z]*\\d*[a-zA-Z]+\\d[#+]*)|(\\w-\\w(-\\w)*))(\\s*(1-0|0-1|1\\/2-1\\/2)?)?)";
 
     /**
      * Funcion encargada de devolver cada una de las jugadas

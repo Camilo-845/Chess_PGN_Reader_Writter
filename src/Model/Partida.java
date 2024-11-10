@@ -13,18 +13,36 @@ public class Partida {
         tableroInicial = getDefaultTablero();
     }
 
+    /**
+     * Obtine el tablero en la ultima jugada
+     * @return Tablero
+     */
     public Tablero obtenerTablero(){
         return obtenerTablero(numeroMovimientos);
     }
 
+    /**
+     * Obtiene el tablero en una ronda especificada
+     * @param ronda
+     * @return Tablero
+     */
     public Tablero obtenerTablero(int ronda){
         if(ronda > numeroMovimientos) {
             return null;
         }
-        Tablero estadoTablero = new Tablero();
+        Tablero tableroConMovimientos = new Tablero();
+        Pieza.Color currentColor = Pieza.Color.BLANCO;
+        for (int i = 0; i < numeroMovimientos; i++) {
+            currentColor = ( i % 2 == 0 ) ? Pieza.Color.BLANCO : Pieza.Color.NEGRO;
+            tableroConMovimientos.realizarMovimiento(currentColor, movimientos.get(i));
+        }
         return tableroInicial;
     }
 
+    /**
+     * Genera un tablero con la posicion inicial de las piezas del ajedrez
+     * @return
+     */
     private Tablero getDefaultTablero(){
         String[] columnaPiezas = {"a","b","c","d","e","f","g","h"};
         Tablero tablero = new Tablero();

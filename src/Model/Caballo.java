@@ -3,6 +3,7 @@ package Model;
 public class Caballo extends Pieza{
     public Caballo(Color color, Posicion posicion) {
         super(color, posicion);
+        this.nomenclatura = "N";
     }
 
     @Override

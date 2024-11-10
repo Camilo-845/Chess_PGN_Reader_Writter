@@ -2,15 +2,15 @@ package Model;
 
 public class Posicion {
     public enum Columna{A,B,C,D,E,F,G,H};
-    public int fila;
+    public Integer fila;
     public Columna columna;
 
-    public Posicion(int fila, Columna columna) {
+    public Posicion(Integer fila, Columna columna) {
         this.fila = fila;
         this.columna = columna;
     }
 
-    public Posicion(int fila, String columna) {
+    public Posicion(Integer fila, String columna) {
         this.fila = fila;
         this.columna = stringToColumna(columna);
     }

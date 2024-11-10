@@ -3,6 +3,7 @@ package Model;
 public class Torre extends Pieza{
     public Torre(Color color, Posicion posicion) {
         super(color, posicion);
+        this.nomenclatura = "R";
     }
 
     @Override

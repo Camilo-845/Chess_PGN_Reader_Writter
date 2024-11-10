@@ -3,6 +3,7 @@ package Model;
 public class Alfil extends Pieza{
     public Alfil(Color color, Posicion posicion) {
         super(color, posicion);
+        this.nomenclatura = "B";
     }
 
     @Override

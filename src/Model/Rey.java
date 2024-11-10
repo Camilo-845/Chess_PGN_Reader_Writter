@@ -3,6 +3,7 @@ package Model;
 public class Rey extends Pieza{
     public Rey(Color color, Posicion posicion) {
         super(color, posicion);
+        this.nomenclatura = "K";
     }
 
     @Override

@@ -4,6 +4,7 @@ public abstract class Pieza {
     public enum Color {NEGRO, BLANCO}
     protected Color color;
     public Posicion posicion;
+    public String nomenclatura;
 
     public Pieza(Color color, Posicion posicion) {
         this.color = color;
