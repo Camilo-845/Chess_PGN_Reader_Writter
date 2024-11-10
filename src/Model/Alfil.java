@@ -14,4 +14,13 @@ public class Alfil extends Pieza{
             return -4;
         }
     }
+
+    @Override
+    public boolean esMovimientoValido(Posicion nuevaPosicion, boolean captura) {
+        int diferenciaFilas = Math.abs(nuevaPosicion.fila - posicion.fila);
+        int diferenciaColumnas = Math.abs(nuevaPosicion.toXY()[1] - posicion.toXY()[1]);
+
+        // El alfil se mueve en diagonal
+        return diferenciaFilas == diferenciaColumnas;
+    }
 }

@@ -43,6 +43,7 @@ public class Tablero {
         Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento);
 
         if(movimiento.matches("^[a-z].*") || movimiento.charAt(0) == 'P'){
+            //peon
         }
         else{
             switch(movimiento.charAt(0)){
@@ -93,9 +94,18 @@ public class Tablero {
             }else{
                 nuevaPosicion = new Posicion(Integer.parseInt(movimientoSinPieza.charAt(1)+""), movimientoSinPieza.charAt(0)+"");
             }
+
+            Pieza pieza_a_mover;
+            for(Pieza pieza: this.piezas){
+                if(pieza.esMovimientoValido(nuevaPosicion,true)){
+                    pieza_a_mover = pieza;
+                    break;
+                };
+            }
         }
         posiciones[0] = posicionSobrepuesta;
         posiciones[1] = nuevaPosicion;
+
         return posiciones;
     }
 }

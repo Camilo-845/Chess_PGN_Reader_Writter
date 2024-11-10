@@ -24,4 +24,6 @@ public abstract class Pieza {
     }
 
     public abstract byte toByte();
+
+    public abstract boolean esMovimientoValido(Posicion nuevaPosicion, boolean captura);
 }

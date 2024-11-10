@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Objects;
+
 public class Torre extends Pieza{
     public Torre(Color color, Posicion posicion) {
         super(color, posicion);
@@ -13,5 +15,15 @@ public class Torre extends Pieza{
         }else{
             return -2;
         }
+    }
+
+    @Override
+    public boolean esMovimientoValido(Posicion nuevaPosicion, boolean captura) {
+        int diferenciaFilas = Math.abs(nuevaPosicion.fila - posicion.fila);
+        int diferenciaColumnas = Math.abs(nuevaPosicion.toXY()[1] - posicion.toXY()[1]);
+
+        // La torre se mueve en línea recta (vertical u horizontal)
+        return (diferenciaFilas == 0 && diferenciaColumnas != 0) ||
+                (diferenciaFilas != 0 && diferenciaColumnas == 0);
     }
 }

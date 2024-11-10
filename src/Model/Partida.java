@@ -30,7 +30,7 @@ public class Partida {
         if(ronda > numeroMovimientos) {
             return null;
         }
-        Tablero tableroConMovimientos = new Tablero();
+        Tablero tableroConMovimientos = new Tablero(tableroInicial);
         Pieza.Color currentColor = Pieza.Color.BLANCO;
         for (int i = 0; i < numeroMovimientos; i++) {
             currentColor = ( i % 2 == 0 ) ? Pieza.Color.BLANCO : Pieza.Color.NEGRO;

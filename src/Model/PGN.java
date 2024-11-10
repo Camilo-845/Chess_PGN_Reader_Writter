@@ -23,35 +23,39 @@ public class PGN {
      * @param path
      * @return Arreglo con cada una de las jugadas
      */
-    public ArrayList<String> getMoves(String path){
-        try{
+    public ArrayList<String> getMoves(String path) {
+        try {
             ArrayList<String> moves = new ArrayList<>();
             Scanner scanner = new Scanner(new File(path));
             StringBuilder mainStringBuilder = new StringBuilder();
 
-            //Leer todo el documento y agregarlo al string
-            while(scanner.hasNextLine()){
+            // Leer todo el documento y agregarlo al string
+            while (scanner.hasNextLine()) {
                 mainStringBuilder.append(" " + scanner.nextLine());
             }
             String mainString = mainStringBuilder.toString();
 
-            //Usa Regex para agrupar coincidencias(Movimientos)
-
+            // Usa Regex para agrupar coincidencias (Movimientos)
             Pattern pattern = Pattern.compile(regexRondas);
             Matcher matcher = pattern.matcher(mainString);
             while (matcher.find()) {
                 String fullmove = matcher.group();
                 String[] fullMoveArr = fullmove.split(" ");
                 moves.add(fullMoveArr[1]);
-                if(fullMoveArr.length > 2){
+                if (fullMoveArr.length > 2) {
                     moves.add(fullMoveArr[2]);
                 }
             }
+
+            // Filtrar movimientos que coincidan con el patrón \d-\d
+            Pattern filtroPattern = Pattern.compile("\\d-\\d");
+            moves.removeIf(move -> filtroPattern.matcher(move).find());
+
             return moves;
-        }
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();  // Retorna una lista vacía en caso de error
         }
     }
+
 }
