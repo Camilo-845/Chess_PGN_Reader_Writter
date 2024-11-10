@@ -1,5 +1,6 @@
 package Model;
 
+import javax.swing.text.Position;
 import java.util.ArrayList;
 
 public class Tablero {
@@ -8,7 +9,10 @@ public class Tablero {
         this.piezas = new ArrayList<>();
     }
     public Tablero(Tablero tablero) {
-        this.piezas = new ArrayList<>(tablero.piezas);
+        this.piezas = new ArrayList<>();
+        for(Pieza pieza : tablero.piezas) {
+            this.piezas.add(pieza.copy());
+        }
     }
     public void addPieza(Pieza p) {
         this.piezas.add(p);
@@ -17,6 +21,19 @@ public class Tablero {
         this.piezas.remove(p);
     }
 
+    /**
+     * Retorna la pieza que esta ubicica en la posicion data
+     * @param pos
+     * @return Pieza || null
+     */
+    public Pieza getPieza(Posicion pos) {
+        for (Pieza p : piezas) {
+            if (p.posicion.equals(pos)) {
+                return p;
+            }
+        }
+        return null;
+    }
     /**
      * Funcion que trasforma los datos del tablero a una matriz de bytes, que representan
      * todas las casillas del tablero de ajedrez
@@ -40,40 +57,21 @@ public class Tablero {
      * Funcion encargada de hacer los movimientos dentro del tablero
      */
     public void realizarMovimiento(Pieza.Color color, String movimiento){
-        Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento);
+        Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento, color);
+        Pieza piezaInicial = getPieza(posiciones[0]);
+        Pieza piezaFinal = getPieza(posiciones[1]);
 
-        if(movimiento.matches("^[a-z].*") || movimiento.charAt(0) == 'P'){
-            //peon
+        if(piezaFinal != null){
+            removePieza(piezaFinal);
         }
-        else{
-            switch(movimiento.charAt(0)){
-                case 'N':
-                    // Caballo
-                    break;
-                case 'B':
-                    // Alfil
-                    break;
-                case 'Q':
-                    //Reina
-                    break;
-                case 'K':
-                    //Rey
-                    break;
-                case 'R':
-                    //Torre
-                    break;
-                case 'O':
-                    if(movimiento.equals("O-O")){
-                        //Enrroque corto
-                    }else{
-                        //Enrroque largo
-                    }
-            }
+
+        if(piezaInicial != null){
+            piezaInicial.posicion = posiciones[1];
         }
     }
-    private Posicion[] ObtenerPosiciones_Inicial_Final(String movimiento){
+    private Posicion[] ObtenerPosiciones_Inicial_Final(String movimiento, Pieza.Color color){
         Posicion[] posiciones= new Posicion[2];
-
+        boolean captura = movimiento.contains("x");
         movimiento = movimiento.replaceAll("[#!+x]", "");//Quitamos las x de capturas
 
         //String sin especificacion de pieza para verificar si el movmimiento no esta sobrepuesto
@@ -82,6 +80,8 @@ public class Tablero {
 
         Posicion nuevaPosicion = null;
         Posicion posicionSobrepuesta = null;
+
+        Posicion pieza_a_mover = null;
         if(movimiento.charAt(0) != 'O'){
             //Guardamos las posiciones del movimiento y si el el caso de la sobreposicion
             if(sobrepuesto){
@@ -95,15 +95,38 @@ public class Tablero {
                 nuevaPosicion = new Posicion(Integer.parseInt(movimientoSinPieza.charAt(1)+""), movimientoSinPieza.charAt(0)+"");
             }
 
-            Pieza pieza_a_mover;
             for(Pieza pieza: this.piezas){
-                if(pieza.esMovimientoValido(nuevaPosicion,true)){
-                    pieza_a_mover = pieza;
-                    break;
-                };
+                if (!pieza.color.equals(color))continue;
+                if( pieza.nomenclatura.contains(movimiento.charAt(0)+"") || movimiento.matches("^[a-z].*")){
+                    if((posicionSobrepuesta == null) && pieza.esMovimientoValido(nuevaPosicion,captura)){
+                        pieza_a_mover = pieza.posicion;
+                        break;
+                    }else if (posicionSobrepuesta != null){
+                        boolean filtroColumna = posicionSobrepuesta.columna == null;
+                        boolean filtroFila = posicionSobrepuesta.fila == null;
+                        if(!filtroColumna){
+                            if(pieza.posicion.toXY()[1] == nuevaPosicion.toXY()[1]){
+                                if(pieza.esMovimientoValido(nuevaPosicion,captura)){
+                                    pieza_a_mover = pieza.posicion;
+                                    break;
+                                }
+                            };
+                        }else if(filtroFila){
+                            if(pieza.posicion.fila == nuevaPosicion.fila){
+                                if(pieza.esMovimientoValido(nuevaPosicion,captura)){
+                                    pieza_a_mover = pieza.posicion;
+                                    break;
+                                }
+                            };
+                        }
+                    }
+                }
             }
+
+        }else{
+
         }
-        posiciones[0] = posicionSobrepuesta;
+        posiciones[0] =pieza_a_mover;
         posiciones[1] = nuevaPosicion;
 
         return posiciones;

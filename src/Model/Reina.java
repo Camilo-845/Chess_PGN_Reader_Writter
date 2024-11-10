@@ -25,4 +25,9 @@ public class Reina extends Pieza{
                 (diferenciaFilas != 0 && diferenciaColumnas == 0) || // Movimiento vertical
                 (diferenciaFilas == diferenciaColumnas);            // Movimiento diagonal
     }
+
+    @Override
+    public Pieza copy() {
+        return new Reina(this.color,new Posicion(this.posicion.fila, this.posicion.columna));
+    }
 }

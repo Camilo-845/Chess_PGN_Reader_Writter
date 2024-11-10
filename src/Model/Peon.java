@@ -53,4 +53,9 @@ public class Peon extends Pieza{
         }
         return true;
     }
+
+    @Override
+    public Pieza copy() {
+        return new Peon(this.color,new Posicion(this.posicion.fila, this.posicion.columna));
+    }
 }

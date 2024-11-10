@@ -23,6 +23,8 @@ public abstract class Pieza {
         this.color = color;
     }
 
+    public abstract Pieza copy();
+
     public abstract byte toByte();
 
     public abstract boolean esMovimientoValido(Posicion nuevaPosicion, boolean captura);

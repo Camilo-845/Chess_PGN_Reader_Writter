@@ -32,11 +32,11 @@ public class Partida {
         }
         Tablero tableroConMovimientos = new Tablero(tableroInicial);
         Pieza.Color currentColor = Pieza.Color.BLANCO;
-        for (int i = 0; i < numeroMovimientos; i++) {
+        for (int i = 0; i < ronda; i++) {
             currentColor = ( i % 2 == 0 ) ? Pieza.Color.BLANCO : Pieza.Color.NEGRO;
             tableroConMovimientos.realizarMovimiento(currentColor, movimientos.get(i));
         }
-        return tableroInicial;
+        return tableroConMovimientos;
     }
 
     /**

@@ -7,6 +7,11 @@ public class Alfil extends Pieza{
     }
 
     @Override
+    public Pieza copy() {
+        return new Alfil(this.color,new Posicion(this.posicion.fila, this.posicion.columna));
+    }
+
+    @Override
     public byte toByte() {
         if(color == Color.BLANCO){
             return 4;

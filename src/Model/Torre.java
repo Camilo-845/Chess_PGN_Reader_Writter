@@ -26,4 +26,9 @@ public class Torre extends Pieza{
         return (diferenciaFilas == 0 && diferenciaColumnas != 0) ||
                 (diferenciaFilas != 0 && diferenciaColumnas == 0);
     }
+
+    @Override
+    public Pieza copy() {
+        return new Torre(this.color,new Posicion(this.posicion.fila, this.posicion.columna));
+    }
 }

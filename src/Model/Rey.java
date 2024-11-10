@@ -23,4 +23,9 @@ public class Rey extends Pieza{
         // El rey solo puede moverse una casilla en cualquier dirección
         return diferenciaFilas <= 1 && diferenciaColumnas <= 1;
     }
+
+    @Override
+    public Pieza copy() {
+        return new Rey(this.color,new Posicion(this.posicion.fila, this.posicion.columna));
+    }
 }
