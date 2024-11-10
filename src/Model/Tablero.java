@@ -28,7 +28,7 @@ public class Tablero {
      */
     public Pieza getPieza(Posicion pos) {
         for (Pieza p : piezas) {
-            if (p.posicion.equals(pos)) {
+            if (p.posicion.fila == pos.fila && p.posicion.columna == pos.columna) {
                 return p;
             }
         }
@@ -58,16 +58,18 @@ public class Tablero {
      */
     public void realizarMovimiento(Pieza.Color color, String movimiento){
         Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento, color);
-        Pieza piezaInicial = getPieza(posiciones[0]);
-        Pieza piezaFinal = getPieza(posiciones[1]);
+        if(posiciones[0] != null && posiciones[1] != null){
+            Pieza piezaInicial = getPieza(posiciones[0]);
+            Pieza piezaFinal = getPieza(posiciones[1]);
+            if(piezaFinal != null){
+                removePieza(piezaFinal);
+            }
 
-        if(piezaFinal != null){
-            removePieza(piezaFinal);
+            if(piezaInicial != null){
+                piezaInicial.posicion = posiciones[1];
+            }
         }
 
-        if(piezaInicial != null){
-            piezaInicial.posicion = posiciones[1];
-        }
     }
     private Posicion[] ObtenerPosiciones_Inicial_Final(String movimiento, Pieza.Color color){
         Posicion[] posiciones= new Posicion[2];
@@ -124,12 +126,29 @@ public class Tablero {
             }
 
         }else{
-
+            int filaCambio = (color == Pieza.Color.BLANCO)?1:8;
+            Posicion[] posTorre = new Posicion[2];
+            Posicion[] posRey = {new Posicion(filaCambio,"e"),new Posicion(filaCambio,"g")};
+            if(movimiento.equals("O-O")){
+                posTorre[0] =new Posicion(filaCambio,"h");
+                posTorre[1] =new Posicion(filaCambio,"f");
+            }else{
+                posTorre[0] =new Posicion(filaCambio,"a");
+                posTorre[1] =new Posicion(filaCambio,"d");
+            }
+            realizarMovimientoEnrroque(posRey, posTorre);
         }
         posiciones[0] =pieza_a_mover;
         posiciones[1] = nuevaPosicion;
 
         return posiciones;
+    }
+
+    private void realizarMovimientoEnrroque(Posicion[] posRey, Posicion[] posTorre){
+        Pieza rey = getPieza(posRey[0]);
+        Pieza torre = getPieza(posTorre[0]);
+        rey.posicion = posRey[1];
+        torre.posicion = posTorre[1];
     }
 }
 
