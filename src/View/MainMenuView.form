@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="View.MainMenuView">
+  <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="FlowLayout" hgap="5" vgap="5" flow-align="1">
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties>
+      <preferredSize width="800" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <component id="8bac" class="javax.swing.JButton" binding="BotonLector">
+        <constraints/>
+        <properties>
+          <text value="Lector"/>
+        </properties>
+      </component>
+      <component id="e9303" class="javax.swing.JButton" binding="BootonEscritor">
+        <constraints/>
+        <properties>
+          <text value="Escritor"/>
+        </properties>
+      </component>
+      <component id="965a8" class="javax.swing.JButton" binding="BotonSalir">
+        <constraints/>
+        <properties>
+          <text value="Salir"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
