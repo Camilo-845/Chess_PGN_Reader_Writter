@@ -13,20 +13,20 @@ public class ControladorMenuPrincipal implements ActionListener {
     public ControladorMenuPrincipal(MainViewController controller, MainMenuView view) {
         this.view = view;
         this.mainController = controller;
-        view.BootonEscritor.addActionListener(this);
-        view.BotonLector.addActionListener(this);
-        view.BotonSalir.addActionListener(this);
+        view.getBotonLector().addActionListener(this);
+        view.getBootonEscritor().addActionListener(this);
+        view.getBotonSalir().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == view.BotonSalir) {
+        if (e.getSource() == view.getBotonSalir()) {
             System.exit(0);
         }
-        if (e.getSource() == view.BotonLector) {
+        if (e.getSource() == view.getBotonLector()) {
             mainController.iniciarVistaLector();
         }
-        if (e.getSource() == view.BootonEscritor) {
+        if (e.getSource() == view.getBootonEscritor()) {
             mainController.iniciarVistaWritter();
         }
     }

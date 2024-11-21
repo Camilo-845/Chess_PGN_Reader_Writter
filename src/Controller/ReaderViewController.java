@@ -25,26 +25,26 @@ public class ReaderViewController implements ActionListener {
         this.jugada = 0;
         this.tablero = null;
 
-        view.BotonSeleccionarArchivo.addActionListener(this);
-        view.BotonSiguiente.addActionListener(this);
-        view.BotonAnterior.addActionListener(this);
-        view.BotonVolver.addActionListener(this);
+        view.getBotonSeleccionarArchivo().addActionListener(this);
+        view.getBotonSiguiente().addActionListener(this);
+        view.getBotonAnterior().addActionListener(this);
+        view.getBotonVolver().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == view.BotonSeleccionarArchivo) {
+        if (e.getSource() == view.getBotonSeleccionarArchivo()) {
             JFileChooser fileChooser = new JFileChooser(new File(System.getProperty("user.dir")));
             FileNameExtensionFilter filtro = new FileNameExtensionFilter("PGN Files", "pgn");
             fileChooser.setFileFilter(filtro);
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fileChooser.showOpenDialog(view.BotonSeleccionarArchivo);
+            fileChooser.showOpenDialog(view.getBotonSeleccionarArchivo());
             String selection = fileChooser.getSelectedFile().getPath();
             System.out.println("Selection: " + selection);
             generarPartida(selection);
 
         }
-        if (e.getSource() == view.BotonSiguiente) {
+        if (e.getSource() == view.getBotonSiguiente()) {
             if (partida != null) {
                 if(jugada + 1 < partida.numeroMovimientos){
                     jugada ++;
@@ -52,7 +52,7 @@ public class ReaderViewController implements ActionListener {
                 }
             }
         }
-        if (e.getSource() == view.BotonAnterior) {
+        if (e.getSource() == view.getBotonAnterior()) {
             if (partida != null) {
                 if(jugada -1 >= 0){
                     jugada --;
@@ -60,14 +60,14 @@ public class ReaderViewController implements ActionListener {
                 }
             }
         }
-        if (e.getSource() == view.BotonVolver) {
+        if (e.getSource() == view.getBotonVolver()) {
             mainController.iniciarVistaMenu();
         }
     }
 
     private void generarPartida(String path){
         this.partida = new Partida(path);
-        view.PGN_moves.setText(partida.movimientos.toString());
+        view.getPGN_moves().setText(partida.movimientos.toString());
         jugada = 0;
         tablero = partida.tableroInicial;
     }

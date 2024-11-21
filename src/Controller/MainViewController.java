@@ -16,17 +16,17 @@ public class MainViewController {
     public void iniciarVistaMenu(){
         MainMenuView vistaMenuPrincipal = new MainMenuView();
         ControladorMenuPrincipal controladorMenuPrincipal = new ControladorMenuPrincipal(this,vistaMenuPrincipal);
-        view.changeView(vistaMenuPrincipal.panel1);
+        view.changeView(vistaMenuPrincipal);
     }
     public void iniciarVistaLector(){
         ReaderView vistaLector = new ReaderView();
         ReaderViewController vistaLectorController = new ReaderViewController(this,vistaLector);
-        view.changeView(vistaLector.panel1);
+        view.changeView(vistaLector);
     }
     public void iniciarVistaWritter(){
         WritterView vistaWritter = new WritterView();
         WritterViewController vistaWritterController = new WritterViewController(this,vistaWritter);
-        view.changeView(vistaWritter.Panel1);
+        view.changeView(vistaWritter);
     }
 
     public void iniciar() {
