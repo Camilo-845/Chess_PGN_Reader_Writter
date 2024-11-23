@@ -44,6 +44,7 @@ public class ReaderViewController implements ActionListener {
             String selection = fileChooser.getSelectedFile().getPath();
             System.out.println("Selection: " + selection);
             generarPartida(selection);
+            actualizarTablero(tablero);
 
         }
         if (e.getSource() == view.getBotonSiguiente()) {

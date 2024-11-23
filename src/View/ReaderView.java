@@ -23,6 +23,8 @@ public class ReaderView extends javax.swing.JPanel {
      */
     public ReaderView() {
         initComponents();
+        PGN_moves.setLineWrap(true); 
+        PGN_moves.setWrapStyleWord(true);
     }
 
     public void setTableroLector(Tablero tablero) {
