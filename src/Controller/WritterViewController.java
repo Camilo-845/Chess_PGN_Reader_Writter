@@ -12,14 +12,14 @@ import java.io.File;
 
 public class WritterViewController implements ActionListener {
     private WritterView view;
-    private MainViewController mainController;
+    private WritterController mainController;
 
     private Partida partida;
     private Tablero tablero;
     private int jugada;
 
 
-    public WritterViewController(MainViewController controller, WritterView view) {
+    public WritterViewController(WritterController controller, WritterView view) {
         this.view = view;
         this.mainController = controller;
         view.getVolver().addActionListener(this);
@@ -28,7 +28,7 @@ public class WritterViewController implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.getVolver()) {
-            mainController.iniciarVistaMenu();
+            mainController.mainController.iniciarVistaMenu();
         }
     }
 

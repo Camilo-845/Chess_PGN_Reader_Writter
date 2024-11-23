@@ -6,7 +6,12 @@ import com.sun.tools.javac.Main;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class ControladorMenuPrincipal implements ActionListener {
+    private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     private MainMenuView view;
     private MainViewController mainController;
 
@@ -24,10 +29,20 @@ public class ControladorMenuPrincipal implements ActionListener {
             System.exit(0);
         }
         if (e.getSource() == view.getBotonLector()) {
-            mainController.iniciarVistaLector();
+            mainController.iniciarPantallaCarga();
+            Runnable task = () -> {
+                mainController.iniciarVistaLector();
+            };
+            scheduler.schedule(task, 3, TimeUnit.SECONDS);
+            scheduler.shutdown();
         }
         if (e.getSource() == view.getBootonEscritor()) {
-            mainController.iniciarVistaWritter();
+            mainController.iniciarPantallaCarga();
+            Runnable task = () -> {
+                mainController.iniciarVistaWritter();
+            };
+            scheduler.schedule(task, 3, TimeUnit.SECONDS);
+            scheduler.shutdown();
         }
     }
 }

@@ -1,9 +1,15 @@
 package Controller;
 
+import View.IntroApp;
 import View.MainMenuView;
 import View.MainView;
+import View.PantallaDeCarga;
 import View.ReaderView;
 import View.WritterView;
+
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MainViewController {
     public MainView view;
@@ -24,13 +30,29 @@ public class MainViewController {
         view.changeView(vistaLector);
     }
     public void iniciarVistaWritter(){
-        WritterView vistaWritter = new WritterView();
-        WritterViewController vistaWritterController = new WritterViewController(this,vistaWritter);
-        view.changeView(vistaWritter);
+        new WritterController(this);
+    }
+    
+    public void iniciarIntroApp(){
+        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
+        IntroApp vistaIntro = new IntroApp();
+        IntroAppController vistaIntroController = new IntroAppController(this, vistaIntro);
+        view.changeView(vistaIntro);
+        
+         Runnable task = () -> {
+            iniciarVistaMenu();
+        };
+        scheduler.schedule(task, 2, TimeUnit.SECONDS);
+        scheduler.shutdown();
+    }
+    
+    public void iniciarPantallaCarga(){
+        PantallaDeCarga vistaCarga = new PantallaDeCarga();
+        view.changeView(vistaCarga);
     }
 
     public void iniciar() {
-        iniciarVistaMenu();
+        iniciarIntroApp();
         this.view.iniciar();
     }
 }
