@@ -16,13 +16,16 @@ public class WritterUserDataController implements ActionListener{
     private WriterUserDataView view;
     private WritterController mainController;
 
-
     public WritterUserDataController(WritterController controller, WriterUserDataView view) {
         this.view = view;
         this.mainController = controller;
+        view.getBotonVolver().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == view.getBotonVolver()) {
+            mainController.mainController.iniciarVistaMenu();
+        }
     }
 }

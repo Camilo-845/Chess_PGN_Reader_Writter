@@ -43,7 +43,7 @@ public class Partida {
      * Genera un tablero con la posicion inicial de las piezas del ajedrez
      * @return
      */
-    private Tablero getDefaultTablero(){
+    public static Tablero getDefaultTablero(){
         String[] columnaPiezas = {"a","b","c","d","e","f","g","h"};
         Tablero tablero = new Tablero();
 

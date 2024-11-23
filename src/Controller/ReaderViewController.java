@@ -3,6 +3,7 @@ package Controller;
 import Model.Partida;
 import Model.Tablero;
 import View.ReaderView;
+import View.TableroLector;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -23,12 +24,13 @@ public class ReaderViewController implements ActionListener {
         this.view = view;
         this.mainController = controller;
         this.jugada = 0;
-        this.tablero = null;
+        this.tablero = Partida.getDefaultTablero();
 
         view.getBotonSeleccionarArchivo().addActionListener(this);
         view.getBotonSiguiente().addActionListener(this);
         view.getBotonAnterior().addActionListener(this);
         view.getBotonVolver().addActionListener(this);
+        view.setTableroLector(tablero);
     }
 
     @Override
@@ -49,6 +51,7 @@ public class ReaderViewController implements ActionListener {
                 if(jugada + 1 < partida.numeroMovimientos){
                     jugada ++;
                     tablero = partida.obtenerTablero(jugada);
+                    actualizarTablero(tablero);
                 }
             }
         }
@@ -57,6 +60,7 @@ public class ReaderViewController implements ActionListener {
                 if(jugada -1 >= 0){
                     jugada --;
                     tablero = partida.obtenerTablero(jugada);
+                    actualizarTablero(tablero);
                 }
             }
         }
@@ -70,5 +74,9 @@ public class ReaderViewController implements ActionListener {
         view.getPGN_moves().setText(partida.movimientos.toString());
         jugada = 0;
         tablero = partida.tableroInicial;
+    }
+    
+    private void actualizarTablero(Tablero tablero1){
+        view.setTableroLector(tablero1);
     }
 }
