@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class Main {
     public static void main(String[] args) {
-        MainView view = new MainView("Vista Principal", new Dimension(800,600));
+        MainView view = new MainView("Vista Principal", new Dimension(870,620));
         MainViewController controller = new MainViewController(view);
         controller.iniciar();
         view.setVisible(true);

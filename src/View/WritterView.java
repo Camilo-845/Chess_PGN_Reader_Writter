@@ -20,9 +20,11 @@ public class WritterView extends javax.swing.JPanel {
         initComponents();
     }
 
-    public JButton getBotonVolver() {
-        return BotonVolver;
+    public JButton getVolver() {
+        return Volver;
     }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,30 +35,137 @@ public class WritterView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BotonVolver = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        TableroLector = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        PGN_moves1 = new javax.swing.JTextArea();
+        Volver = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        PGN_moves = new javax.swing.JTextArea();
+        BotonAnterior1 = new javax.swing.JButton();
 
-        BotonVolver.setText("volver");
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(800, 600));
+        setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(179, Short.MAX_VALUE)
-                .addComponent(BotonVolver)
-                .addGap(149, 149, 149))
+        jPanel1.setBackground(new java.awt.Color(65, 57, 49));
+
+        TableroLector.setBackground(new java.awt.Color(255, 255, 255));
+        TableroLector.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/cafe oscuro tablero panel lector.png"))); // NOI18N
+        TableroLector.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 430, 550));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Chess Writer");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/coffe.png"))); // NOI18N
+
+        PGN_moves1.setBackground(new java.awt.Color(255, 213, 180));
+        PGN_moves1.setColumns(20);
+        PGN_moves1.setForeground(new java.awt.Color(0, 0, 0));
+        PGN_moves1.setRows(5);
+        PGN_moves1.setText("Detalles de la Partida:\n\nfecha: 24/24/2004\nblancas: Magnus Carlsen\nNegras: Jhon Cordoba\nblah\nblah\nblah");
+        jScrollPane2.setViewportView(PGN_moves1);
+
+        Volver.setBackground(new java.awt.Color(184, 144, 113));
+        Volver.setForeground(new java.awt.Color(255, 255, 255));
+        Volver.setText("Volver");
+        Volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolverActionPerformed(evt);
+            }
+        });
+
+        PGN_moves.setBackground(new java.awt.Color(255, 213, 180));
+        PGN_moves.setColumns(20);
+        PGN_moves.setForeground(new java.awt.Color(0, 0, 0));
+        PGN_moves.setRows(5);
+        PGN_moves.setText("movimientos en formato pgn\n1.e4 e5, f6 etc");
+        jScrollPane1.setViewportView(PGN_moves);
+
+        BotonAnterior1.setBackground(new java.awt.Color(184, 144, 113));
+        BotonAnterior1.setForeground(new java.awt.Color(255, 255, 255));
+        BotonAnterior1.setText("Guardar");
+        BotonAnterior1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonAnterior1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(TableroLector, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(67, 67, 67)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(BotonAnterior1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(BotonVolver)
-                .addGap(113, 113, 113))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TableroLector, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
+                        .addGap(55, 55, 55)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonAnterior1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Volver, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VolverActionPerformed
+
+    private void BotonAnterior1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAnterior1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonAnterior1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonVolver;
+    private javax.swing.JButton BotonAnterior1;
+    private javax.swing.JTextArea PGN_moves;
+    private javax.swing.JTextArea PGN_moves1;
+    private javax.swing.JPanel TableroLector;
+    private javax.swing.JButton Volver;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
+
+    /*
+    public Object getBotonVolver() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }*/
 }

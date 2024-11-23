@@ -22,12 +22,12 @@ public class WritterViewController implements ActionListener {
     public WritterViewController(MainViewController controller, WritterView view) {
         this.view = view;
         this.mainController = controller;
-        view.getBotonVolver().addActionListener(this);
+        view.getVolver().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == view.getBotonVolver()) {
+        if (e.getSource() == view.getVolver()) {
             mainController.iniciarVistaMenu();
         }
     }
