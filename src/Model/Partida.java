@@ -82,8 +82,37 @@ public class Partida {
     }
     
     public String PartidaToPGN(){
-        return "";
+        StringBuilder pgn = new StringBuilder();
+
+        // Encabezado PGN (esto puede ser opcional, pero vamos a incluir un ejemplo básico)
+        pgn.append("[Event \"Unknown Event\"]\n");
+        pgn.append("[Site \"Unknown Site\"]\n");
+        pgn.append("[Date \"????.??.??\"]\n");
+        pgn.append("[Round \"?\"]\n");
+        pgn.append("[White \"Player 1\"]\n");
+        pgn.append("[Black \"Player 2\"]\n");
+        pgn.append("[Result \"*\"]\n\n"); // Indica que el resultado es desconocido o no determinado
+
+        // Movimientos de la partida
+        for (int i = 0; i < numeroMovimientos; i++) {
+            int turno = (i / 2) + 1; // Los movimientos se agrupan por turno (blanco y negro)
+            if (i % 2 == 0) {
+                // Es el turno de las blancas
+                pgn.append(turno + ". ");  // Número de turno
+                pgn.append(movimientos.get(i));  // Movimiento de la pieza blanca
+                if (i + 1 < numeroMovimientos) {
+                    // Si hay un movimiento de las negras
+                    pgn.append(" ");  // Espacio entre los movimientos
+                    pgn.append(movimientos.get(i + 1));  // Movimiento de la pieza negra
+                }
+                pgn.append("\n");  // Nueva línea después de cada turno
+            }
+        }
+
+        // Devuelve el PGN generado
+        return pgn.toString();
     }
+
     
     public void agregarMovimiento(String movimiento){
         this.movimientos.add(movimiento);

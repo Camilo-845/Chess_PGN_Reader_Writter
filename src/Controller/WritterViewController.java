@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.MovimientoListener;
+import Model.PGN;
 import Model.Partida;
 import Model.Pieza;
 import Model.Posicion;
@@ -28,6 +29,7 @@ public class WritterViewController implements ActionListener, MovimientoListener
         this.mainController = controller;
         this.tablero = Partida.getDefaultTablero();
         view.getVolver().addActionListener(this);
+        view.getBotonAnterior1().addActionListener(this);
         view.setTableroEscritor(tablero);
         view.getTableroEscritor().setMovimientoListener(this);
         this.partida = new Partida();
@@ -38,6 +40,10 @@ public class WritterViewController implements ActionListener, MovimientoListener
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == view.getVolver()) {
             mainController.mainController.iniciarVistaMenu();
+        }
+        if (e.getSource() == view.getBotonAnterior1()) {
+            String data = partida.PartidaToPGN();
+            new PGN().saveGame(data);
         }
     }
 

@@ -185,6 +185,10 @@ public class WritterView extends javax.swing.JPanel {
     // Variables declaration - do not modify                     
     private javax.swing.JButton BotonAnterior1;
     private javax.swing.JTextArea PGN_moves;
+
+    public JButton getBotonAnterior1() {
+        return BotonAnterior1;
+    }
     private javax.swing.JTextArea PGN_moves1;
     private TableroEscritor tableroEscritorPanel;
     private javax.swing.JButton Volver;

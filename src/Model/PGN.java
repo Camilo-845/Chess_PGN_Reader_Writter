@@ -11,6 +11,11 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * Clase Encargada de la lectura y escrigura de archivos .pgn
  */
@@ -57,5 +62,39 @@ public class PGN {
             return new ArrayList<>();  // Retorna una lista vacía en caso de error
         }
     }
+    
+    
+    public void saveGame(String data){
+    // Crear un cuadro de diálogo para seleccionar el archivo de destino
+    JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setDialogTitle("Guardar archivo");
+    
+    // Filtrar solo archivos con extensión .pgn
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileNameExtensionFilter("PGN Files", "pgn"));
+    
+    // Mostrar el cuadro de diálogo de guardar y obtener la respuesta del usuario
+    int seleccion = fileChooser.showSaveDialog(null);
 
+    // Si el usuario selecciona "Guardar"
+    if (seleccion == JFileChooser.APPROVE_OPTION) {
+        // Obtener el archivo seleccionado por el usuario
+        File archivoSeleccionado = fileChooser.getSelectedFile();
+        
+        // Verificar si el archivo seleccionado no tiene la extensión .pgn
+        if (!archivoSeleccionado.getName().endsWith(".pgn")) {
+            archivoSeleccionado = new File(archivoSeleccionado.getAbsolutePath() + ".pgn");
+        }
+
+        // Ahora, escribe algo en el archivo
+        try (FileWriter writer = new FileWriter(archivoSeleccionado)) {
+            // Aquí puedes escribir en el archivo
+            writer.write(data);
+            System.out.println("Archivo guardado en: " + archivoSeleccionado.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } else {
+        System.out.println("El usuario canceló la selección del archivo.");
+    }
+}
 }
