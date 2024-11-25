@@ -4,13 +4,18 @@ This is a Java-based PGN (Portable Game Notation) chess game reader and writter
 > Based in previus project [Chess_PGN_Reader](https://github.com/Camilo-845/Chess_PGN_Reader)
 
 ## Instalacion y uso
-### Opcion 1 (NetBeans):
-1. Clonar Repositorio
+### Instalacion:
+Descargar .zip del proyecto [link](https://github.com/Camilo-845/Chess_PGN_Reader_Writter/archive/refs/heads/main.zip)
+
+o
+
+Clonar Repositorio
 ```sh
   git clone https://github.com/Camilo-845/Chess_PGN_Reader_Writter.git
 ```
-2. Abrir Proyecto del repositorio desde Netbeans
-3. Ejecutar Ptoyecto
+### Opcion 1 (NetBeans):
+1. Abrir Proyecto del repositorio desde Netbeans
+2. Ejecutar Ptoyecto
 
 ### Opcion 2 (JAR):
 Usando [Chess.jar](./Chess.jar)
