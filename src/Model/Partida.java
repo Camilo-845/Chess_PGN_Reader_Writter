@@ -15,6 +15,8 @@ public class Partida {
     
     public Partida(){
         tableroInicial = getDefaultTablero();
+        numeroMovimientos = 0;
+        this.movimientos = new ArrayList<>();
     }
     /**
      * Obtine el tablero en la ultima jugada
@@ -81,5 +83,11 @@ public class Partida {
     
     public String PartidaToPGN(){
         return "";
+    }
+    
+    public void agregarMovimiento(String movimiento){
+        this.movimientos.add(movimiento);
+        this.numeroMovimientos++;
+        System.out.println(movimientos);
     }
 }

@@ -30,7 +30,7 @@ public class WritterViewController implements ActionListener, MovimientoListener
         view.getVolver().addActionListener(this);
         view.setTableroEscritor(tablero);
         view.getTableroEscritor().setMovimientoListener(this);
-        this.partida = new Partida("");
+        this.partida = new Partida();
         this.jugada = 0;
     }
 
@@ -47,19 +47,50 @@ public class WritterViewController implements ActionListener, MovimientoListener
         System.out.println("Movimiento desde " + filaOrigen + "," + colOrigen + " hasta " + filaDestino + "," + colDestino);
         Pieza pieza = tablero.getPieza(new Posicion(filaOrigen, colOrigen));
         System.out.println("Pieza = "+ pieza.nomenclatura);
-        comprobarMovimiento(pieza, new Posicion(filaDestino, colDestino));
+        Posicion posicionFinal = new Posicion(filaDestino, colDestino);
+        
+        if(comprobarMovimiento(pieza, posicionFinal)){
+            partida.agregarMovimiento(escribirMovimiento(pieza, posicionFinal));
+            jugada++;
+            this.tablero =  partida.obtenerTablero(jugada);
+            actualizarTablero(tablero);
+        };
     }
     
+   
+    
     private boolean comprobarMovimiento(Pieza pieza, Posicion posicionFinal){
+        boolean captura = tablero.getPieza(posicionFinal) != null;
         if(this.jugada%2 == 0){
             if(pieza.getColor()==Pieza.Color.BLANCO){
-                return true;
+                if(pieza.esMovimientoValido(posicionFinal, captura));{
+                    return true;
+                }
             }
         }else{
             if(pieza.getColor()==Pieza.Color.NEGRO){
-                return true;
+                if(pieza.esMovimientoValido(posicionFinal, captura));{
+                    return true;
+                }
             }
         }
         return false;
+    }
+    
+     public String escribirMovimiento(Pieza pieza, Posicion posicionFinal){
+        Pieza piezaCapturada = tablero.getPieza(posicionFinal);
+        boolean captura = piezaCapturada != null;
+        
+        String movimiento = ""+pieza.nomenclatura + posicionFinal.toString();
+        if(captura){
+            movimiento = pieza.nomenclatura+"x"+ piezaCapturada.posicion.toString();
+        }
+        
+        return movimiento;
+    }
+     
+     private void actualizarTablero(Tablero tablero1){
+        view.setTableroEscritor(tablero1);
+         System.out.println(tablero.toString());
     }
 }

@@ -18,11 +18,12 @@ public class Rey extends Pieza{
     @Override
     public boolean esMovimientoValido(Posicion nuevaPosicion, boolean captura) {
         int diferenciaFilas = Math.abs(nuevaPosicion.fila - posicion.fila);
-        int diferenciaColumnas = Math.abs(nuevaPosicion.toXY()[1] - posicion.toXY()[1]);
+        int diferenciaColumnas = Math.abs(Posicion.columnaToInt(nuevaPosicion.columna) - Posicion.columnaToInt(posicion.columna));
 
-        // El rey solo puede moverse una casilla en cualquier dirección
+        // El rey solo puede moverse una casilla en cualquier dirección (horizontal, vertical o diagonal)
         return diferenciaFilas <= 1 && diferenciaColumnas <= 1;
     }
+
 
     @Override
     public Pieza copy() {

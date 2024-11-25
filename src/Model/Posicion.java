@@ -47,6 +47,22 @@ public class Posicion {
                 return null;
         }
     }
+    public static int columnaToInt(Columna columna) {
+    switch (columna) {
+        case A: return 0;
+        case B: return 1;
+        case C: return 2;
+        case D: return 3;
+        case E: return 4;
+        case F: return 5;
+        case G: return 6;
+        case H: return 7;
+        default: 
+            System.out.println("Error columna no válida");
+            return -1; // Retornamos un valor inválido en caso de error
+    }
+}
+
     
     public static Columna stringToColumna(String columna){
         return switch (columna.toLowerCase()) { // Convertir a minúsculas para manejar entradas como "A" o "a"
@@ -67,7 +83,7 @@ public class Posicion {
 
     @Override
     public String toString() {
-        return "Posicion{" + "fila=" + fila + ", columna=" + columna + '}';
+        return ""+columna.toString().toLowerCase()+fila;
     }
     
     

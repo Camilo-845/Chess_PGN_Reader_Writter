@@ -56,21 +56,25 @@ public class Tablero {
     /**
      * Funcion encargada de hacer los movimientos dentro del tablero
      */
-    public void realizarMovimiento(Pieza.Color color, String movimiento){
-        Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento, color);
-        if(posiciones[0] != null && posiciones[1] != null){
-            Pieza piezaInicial = getPieza(posiciones[0]);
-            Pieza piezaFinal = getPieza(posiciones[1]);
-            if(piezaFinal != null){
-                removePieza(piezaFinal);
-            }
-
-            if(piezaInicial != null){
-                piezaInicial.posicion = posiciones[1];
-            }
+    public void realizarMovimiento(Pieza.Color color, String movimiento) {
+    Posicion[] posiciones = ObtenerPosiciones_Inicial_Final(movimiento, color);
+        System.out.println("Movimiento a realizar: "+ movimiento);
+    if (posiciones[0] != null && posiciones[1] != null) {
+        Pieza piezaInicial = getPieza(posiciones[0]);
+        Pieza piezaFinal = getPieza(posiciones[1]);
+        
+        // Si la pieza final está ocupada, eliminamos la pieza en esa casilla
+        if (piezaFinal != null) {
+            removePieza(piezaFinal);
         }
 
+        // Movemos la pieza inicial a la nueva posición
+        if (piezaInicial != null) {
+            piezaInicial.posicion = posiciones[1];
+        }
     }
+}
+
     private Posicion[] ObtenerPosiciones_Inicial_Final(String movimiento, Pieza.Color color){
         Posicion[] posiciones= new Posicion[2];
         boolean captura = movimiento.contains("x");
@@ -150,5 +154,46 @@ public class Tablero {
         rey.posicion = posRey[1];
         torre.posicion = posTorre[1];
     }
+
+    @Override
+public String toString() {
+    String str = "Tablero{\n";
+    byte[][] tableroByte = this.toByteMatriz(); // Obtenemos la representación en bytes del tablero
+    
+    // Iteramos sobre las filas del tablero (8 filas)
+    for (int i = 0; i < 8; i++) {
+        str += "| ";  // Agregar un separador para las casillas
+        for (int j = 0; j < 8; j++) {
+            int pieza = tableroByte[i][j];  // Obtenemos el valor de la pieza en la posición [i][j]
+            String piezaStr = " ";  // Inicializamos un espacio en blanco para las casillas vacías
+
+            // Convertimos el valor del byte en su representación de pieza correspondiente
+            switch (pieza) {
+                case 1: piezaStr = "P"; break;  // Peón blanco
+                case -1: piezaStr = "p"; break; // Peón negro
+                case 2: piezaStr = "T"; break;  // Torre blanca
+                case -2: piezaStr = "t"; break; // Torre negra
+                case 3: piezaStr = "C"; break;  // Caballo blanco
+                case -3: piezaStr = "c"; break; // Caballo negro
+                case 4: piezaStr = "A"; break;  // Alfil blanco
+                case -4: piezaStr = "a"; break; // Alfil negro
+                case 5: piezaStr = "R"; break;  // Rey blanco
+                case -5: piezaStr = "r"; break; // Rey negro
+                case 6: piezaStr = "Q"; break;  // Reina blanca
+                case -6: piezaStr = "q"; break; // Reina negra
+                default: piezaStr = " "; break; // Casilla vacía
+            }
+
+            // Añadimos la representación de la pieza (o espacio vacío) a la cadena
+            str += piezaStr + " | ";
+        }
+        str += "\n"; // Salto de línea después de cada fila
+    }
+    str += "}";  // Cerramos la representación del tablero
+    return str;
+}
+
+    
+    
 }
 

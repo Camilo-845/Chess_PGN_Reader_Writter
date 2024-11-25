@@ -52,7 +52,7 @@ public class MainViewController {
     }
 
     public void iniciar() {
-        iniciarIntroApp();
+        iniciarVistaWritter();
         this.view.iniciar();
     }
 }
