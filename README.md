@@ -132,10 +132,8 @@ Nombrer y rol dentro del desarrollo del trabajo.
 - Se usaron tonos tierra (marrón, beige y café) para evocar una sensación casera y cálida, asociándolos con madera y cartón.
 - Esta elección busca diferenciarse de la clásica combinación blanco y negro, ofreciendo un estilo único y especial.![](Doc_Images/Aspose.Words.b0324b15-a5ec-4049-ab7d-e3274257500e.019.png)
 
-![](Doc_Images/Aspose.Words.b0324b15-a5ec-4049-ab7d-e3274257500e.020.png) **Github del Proyecto** 
+![](Doc_Images/Aspose.Words.b0324b15-a5ec-4049-ab7d-e3274257500e.020.png)
 
-[Chess Coffee - Writer and Reader Github](https://github.com/Camilo-845/Chess_PGN_Reader_Writter)
-https://loop.cloud.microsoft/print/eyJwIjp7InUiOiJodHRwczovL3VuaXZlcnNpZGFkbWFnLnNoYXJlcG9pbnQuY29tL2NvbnRlbnRzdG9yYWdlL0NTUF9… 6/6
 
 ## Modelo de Clases
 ![alt text](./Doc_Images/image.png)
