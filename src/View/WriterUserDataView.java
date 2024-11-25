@@ -18,6 +18,8 @@ public class WriterUserDataView extends javax.swing.JPanel {
      */
     public WriterUserDataView() {
         initComponents();
+        jTextArea1.setLineWrap(true); 
+        jTextArea1.setWrapStyleWord(true);
     }
 
     /**
@@ -137,7 +139,7 @@ public class WriterUserDataView extends javax.swing.JPanel {
         jTextArea1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
-        jTextArea1.setText("¿Sabías que cada movimiento que haces en el tablero es \ncomo un poema épico esperando ser escrito? Bueno, Chess\n Writer es tu bardo digital, un pequeño genio que toma cada\n jugada maestra (o desastre, no juzgamos ) y lo convierte en\n un archivo PGN perfecto. Así, puedes guardar tus victorias\n gloriosas, analizar tus estrategias o simplemente presumir \ncon tus amigos de esa increíble táctica que \"obviamente \nplaneaste desde el inicio\". ");
+        jTextArea1.setText("¿Sabías que cada movimiento que haces en el tablero es como un poema épico esperando ser escrito? Bueno, Chess Writer es tu bardo digital, un pequeño genio que toma cada  jugada maestra (o desastre, no juzgamos ) y lo convierte en  un archivo PGN perfecto. Así, puedes guardar tus victorias  gloriosas, analizar tus estrategias o simplemente presumir  con tus amigos de esa increíble táctica que \"obviamente  planeaste desde el inicio\". ");
         jScrollPane1.setViewportView(jTextArea1);
 
         BotonIniciar.setBackground(new java.awt.Color(184, 144, 113));
@@ -190,10 +192,11 @@ public class WriterUserDataView extends javax.swing.JPanel {
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(96, 96, 96))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(BotonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30))))
+                        .addComponent(BotonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(43, 43, 43))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

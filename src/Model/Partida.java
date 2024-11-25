@@ -12,7 +12,10 @@ public class Partida {
         numeroMovimientos = movimientos.size();
         tableroInicial = getDefaultTablero();
     }
-
+    
+    public Partida(){
+        tableroInicial = getDefaultTablero();
+    }
     /**
      * Obtine el tablero en la ultima jugada
      * @return Tablero
@@ -75,5 +78,8 @@ public class Partida {
 
         return tablero;
     }
-
+    
+    public String PartidaToPGN(){
+        return "";
+    }
 }

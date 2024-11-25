@@ -12,9 +12,8 @@ public class WritterController {
     }
     
     public void iniciarVistaWritter(){
-        WritterView vistaWritter = new WritterView();
-        WritterViewController vistaWritterController = new WritterViewController(this,vistaWritter);
-        mainController.view.changeView(vistaWritter);
+        WritterViewController vistaWritterController = new WritterViewController(this);
+        mainController.view.changeView(vistaWritterController.view);
     }
     
     public void iniciarWritterUserData(){

@@ -93,11 +93,12 @@
                           <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jScrollPane1" min="-2" pref="410" max="-2" attributes="0"/>
-                              <Component id="BotonVolver" min="-2" pref="97" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="BotonVolver" min="-2" pref="97" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jScrollPane1" min="-2" pref="367" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -329,7 +330,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="rows" type="int" value="5"/>
-                <Property name="text" type="java.lang.String" value="&#xbf;Sab&#xed;as que cada movimiento que haces en el tablero es &#xa;como un poema &#xe9;pico esperando ser escrito? Bueno, Chess&#xa; Writer es tu bardo digital, un peque&#xf1;o genio que toma cada&#xa; jugada maestra (o desastre, no juzgamos ) y lo convierte en&#xa; un archivo PGN perfecto. As&#xed;, puedes guardar tus victorias&#xa; gloriosas, analizar tus estrategias o simplemente presumir &#xa;con tus amigos de esa incre&#xed;ble t&#xe1;ctica que &quot;obviamente &#xa;planeaste desde el inicio&quot;. "/>
+                <Property name="text" type="java.lang.String" value="&#xbf;Sab&#xed;as que cada movimiento que haces en el tablero es como un poema &#xe9;pico esperando ser escrito? Bueno, Chess Writer es tu bardo digital, un peque&#xf1;o genio que toma cada  jugada maestra (o desastre, no juzgamos ) y lo convierte en  un archivo PGN perfecto. As&#xed;, puedes guardar tus victorias  gloriosas, analizar tus estrategias o simplemente presumir  con tus amigos de esa incre&#xed;ble t&#xe1;ctica que &quot;obviamente  planeaste desde el inicio&quot;. "/>
               </Properties>
             </Component>
           </SubComponents>

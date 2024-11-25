@@ -49,7 +49,7 @@ public class ReaderViewController implements ActionListener {
         }
         if (e.getSource() == view.getBotonSiguiente()) {
             if (partida != null) {
-                if(jugada + 1 < partida.numeroMovimientos){
+                if(jugada + 1 <= partida.numeroMovimientos){
                     jugada ++;
                     tablero = partida.obtenerTablero(jugada);
                     actualizarTablero(tablero);
