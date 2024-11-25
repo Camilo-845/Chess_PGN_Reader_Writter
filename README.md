@@ -13,6 +13,8 @@ Clonar Repositorio
 ```sh
   git clone https://github.com/Camilo-845/Chess_PGN_Reader_Writter.git
 ```
+
+### Ejecucion:
 ### Opcion 1 (NetBeans):
 1. Abrir Proyecto del repositorio desde Netbeans
 2. Ejecutar Ptoyecto
