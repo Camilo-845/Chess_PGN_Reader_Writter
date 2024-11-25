@@ -3,6 +3,62 @@
 This is a Java-based PGN (Portable Game Notation) chess game reader and writter
 > Based in previus project [Chess_PGN_Reader](https://github.com/Camilo-845/Chess_PGN_Reader)
 
+## Instalacion y uso
+### Opcion 1 (NetBeans):
+1. Clonar Repositorio
+```sh
+  git clone https://github.com/Camilo-845/Chess_PGN_Reader_Writter.git
+```
+2. Abrir Proyecto del repositorio desde Netbeans
+3. Ejecutar Ptoyecto
+
+### Opcion 2 (JAR):
+
+1. Abrir el proyecto en IntelliJ IDEA
+
+Si ya tienes el proyecto en IntelliJ, abre el IDE y carga el proyecto. Si aún no tienes el proyecto en IntelliJ, puedes importar el proyecto existente usando:
+
+  - Archivo > Nuevo > Proyecto desde el directorio (si no es un proyecto de IntelliJ aún).
+  - Archivo > Abrir... y selecciona la carpeta del proyecto si ya es un proyecto de IntelliJ.
+2. Configurar el JDK
+
+Asegúrate de que tienes configurado un JDK adecuado:
+
+  - Archivo > Estructura del Proyecto > Proyecto.
+  - En "Proyecto SDK", selecciona la versión correcta del JDK. Si no tienes un JDK configurado, agrega uno desde esta pantalla.
+
+3. Crear una configuración de ejecución
+
+Necesitarás crear una configuración de ejecución para ejecutar el archivo JAR:
+
+  - Ve a la parte superior derecha de la ventana de IntelliJ y haz clic en la lista de configuraciones (cerca del botón verde de "Run").
+  - Haz clic en "Editar configuraciones...".
+  - En la ventana de Configuraciones de ejecución, haz clic en el botón "+" y selecciona "Aplicación Java" (si no ves esta opción, busca la opción correcta dependiendo de tu configuración).
+
+4. Configurar la ejecución del archivo JAR
+
+En la nueva configuración de ejecución:
+
+  - Nombre: Asigna un nombre a la configuración, por ejemplo, "Ejecutar JAR".
+  - Clase principal: Aquí, necesitas seleccionar la clase que contiene el método main(). Si tu JAR está empaquetado correctamente, esta clase debe ser la que inicia el programa (por ejemplo, Main o cualquier otra clase con el main).
+  - Ruta del archivo JAR: Si ya tienes el archivo JAR, puedes configurarlo como un artefacto dentro de IntelliJ.
+  Para configurar el JAR de salida:
+
+  - Ve a Archivo > Configuración del proyecto > Artefactos.
+  - Haz clic en "+" y selecciona "JAR > Desde módulos con dependencia".
+  - Elige el módulo principal y selecciona que el archivo JAR se genere con las dependencias adecuadas.
+5. Seleccionar el JDK correcto
+
+Asegúrate de que el JDK utilizado en la configuración de ejecución coincida con el que usas para compilar el JAR.
+
+6. Ejecutar el JAR
+
+Una vez que la configuración esté lista:
+
+- Haz clic en el botón verde de Run en la parte superior derecha.
+- Esto ejecutará el archivo JAR con la configuración especificada.
+
+## Descripcion del proyecto
 ![alt text](Doc_Images/Aspose.Words.b0324b15-a5ec-4049-ab7d-e3274257500e.001.jpeg)
 
 **Chess Coffee - Writer And Reader**
@@ -74,3 +130,5 @@ Nombrer y rol dentro del desarrollo del trabajo.
 [Chess Coffee - Writer and Reader Github](https://github.com/Camilo-845/Chess_PGN_Reader_Writter)
 https://loop.cloud.microsoft/print/eyJwIjp7InUiOiJodHRwczovL3VuaXZlcnNpZGFkbWFnLnNoYXJlcG9pbnQuY29tL2NvbnRlbnRzdG9yYWdlL0NTUF9… 6/6
 
+## Modelo de Clases
+![alt text](./Doc_Images/image.png)
