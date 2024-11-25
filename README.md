@@ -13,7 +13,7 @@ This is a Java-based PGN (Portable Game Notation) chess game reader and writter
 3. Ejecutar Ptoyecto
 
 ### Opcion 2 (JAR):
-
+Usando [Chess.jar](./Chess.jar)
 1. Abrir el proyecto en IntelliJ IDEA
 
 Si ya tienes el proyecto en IntelliJ, abre el IDE y carga el proyecto. Si aún no tienes el proyecto en IntelliJ, puedes importar el proyecto existente usando:
